@@ -1,0 +1,16 @@
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+
+
+# Environments
+.env
+.env.*
+.venv
