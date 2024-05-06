@@ -1,6 +1,7 @@
 # PokeAPI
+Poke-berries statistics API.
 
-Poke-berries statistics API
+![Demo](docs/demo.gif)
 
 ## Project Structure
 ```bash
