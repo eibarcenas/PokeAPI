@@ -1,4 +1,7 @@
-from fastapi import APIRouter, status
+from fastapi import APIRouter, Depends, status
+
+from app.api.schemas.berries import BerriesStats
+from app.api.services.berries import BerriesService
 
 router = APIRouter()
 
@@ -8,15 +11,17 @@ router = APIRouter()
     status_code=status.HTTP_200_OK,
     responses={
         status.HTTP_200_OK: {
-            "description": "Driver information successfully retrieved",
+            "description": "statistics on berries obtained successfully",
         },
         status.HTTP_404_NOT_FOUND: {
-            "description": "Driver not found",
+            "description": "No statistics found",
         },
         status.HTTP_500_INTERNAL_SERVER_ERROR: {
             "description": "Internal server error",
         },
     },
 )
-async def get_driver():
-    return 1
+async def get_all_berry_stats(
+    service: BerriesService = Depends(BerriesService),
+) -> BerriesStats:
+    return await service.get_stats()
