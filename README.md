@@ -7,6 +7,44 @@ Poke-berries statistics API
 tree "app"
 ```
 
+```bash
+app
+├── api
+│   ├── application.py
+│   ├── controllers
+│   │   ├── berries.py
+│   │   └── __init__.py
+│   ├── __init__.py
+│   ├── router.py
+│   ├── schemas
+│   │   ├── berries.py
+│   │   └── __init__.py
+│   └── services
+│       ├── berries.py
+│       └── __init__.py
+├── core
+│   ├── exceptions
+│   │   ├── berries.py
+│   │   └── __init__.py
+│   └── __init__.py
+├── __init__.py
+├── __main__.py
+├── settings.py
+└── tests
+    ├── fixtures
+    │   ├── berries.py
+    │   └── __init__.py
+    ├── __init__.py
+    └── test_berries.py
+
+```
+
+## Environment variables
+Set your environment variables to the expected value
+```bash
+APP_POKE_API=https://pokeapi.co/api/v2
+```
+
 ## Docker
 To start up the project use this command (terminal 1):
 ```bash
