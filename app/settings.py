@@ -1,4 +1,5 @@
-from typing import ClassVar
+import os
+from typing import ClassVar, Dict
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -8,10 +9,16 @@ class Settings(BaseSettings):
     app_version: str = "1.0.0"
 
     debug: bool = False
-    reload: bool = False
+    reload: bool = True
     host: str = "0.0.0.0"
     port: int = 8000
     api_prefix: ClassVar[str] = ""
+
+    external_apis: Dict[str, str] = {
+        "poke_api": os.environ.get("APP_POKE_API", ""),
+    }
+
+    app_poke_api: str = ""
 
     url_origins: list[str] = ["*"]
 
@@ -24,3 +31,4 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+print(os.environ.get("APP_POKE_API"))
